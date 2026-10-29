@@ -1,0 +1,22 @@
+# Visual Studio temporary files
+
+.vs/
+**/bin/
+**/obj/
+
+# User-specific Visual Studio settings
+
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build and temporary files
+
+[Tt]est[Rr]esult*/
+*.log
+
+# Operating system files
+
+.DS_Store
+Thumbs.db

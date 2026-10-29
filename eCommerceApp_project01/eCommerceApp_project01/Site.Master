@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Site.Master.cs"
+    Inherits="eCommerceApp_project01.Site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1" />
+
+    <title>NEXORA | Discover Something Better</title>
+
+    <link href="<%= ResolveUrl("~/Content/css/style.css") %>"
+        rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="HeadContent"
+        runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Announcement Bar -->
+        <div class="announcement-bar">
+            Discover more. Shop smarter. Live better.
+        </div>
+
+
+        <!-- Main Navigation -->
+        <header class="site-header">
+            <div class="nav-container">
+
+                <a href="<%= ResolveUrl("~/Default.aspx") %>"
+                    class="brand">NEXORA<span>.</span>
+                </a>
+
+                <nav class="main-nav">
+                    <nav class="main-nav">
+                        <a href="<%= ResolveUrl("~/Default.aspx") %>">Home</a>
+                        <a href="<%= ResolveUrl("~/Products.aspx") %>">Shop</a>
+                        <a href="<%= ResolveUrl("~/Products.aspx") %>">Collections</a>
+                        <a href="<%= ResolveUrl("~/Wishlist.aspx") %>">♡ Wishlist</a>
+                        <a class="nav-link" href="<%= ResolveUrl("~/MyOrders.aspx") %>">My Orders</a>
+                    </nav>
+
+
+                </nav>
+
+                <div class="nav-actions">
+
+                    <% if (Session["Username"] == null)
+                        { %>
+
+                    <a href="<%= ResolveUrl("~/Login.aspx") %>"
+                        class="nav-link">Login
+                    </a>
+
+                    <a href="<%= ResolveUrl("~/Register.aspx") %>"
+                        class="nav-link">Register
+                    </a>
+
+                    <% }
+                        else
+                        { %>
+
+                    <span class="nav-link">Hi, <%: Session["Username"] %>
+                    </span>
+
+                    <a href="<%= ResolveUrl("~/Logout.aspx") %>"
+                        class="nav-link">Logout
+                    </a>
+
+                    <% } %>
+
+                    <a href="<%= ResolveUrl("~/Cart.aspx") %>"
+                        class="cart-button">
+
+                        <span class="cart-icon">&#128722;</span>
+                        <span>Cart</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+        </header>
+
+
+
+        <!-- Page Content -->
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent"
+                runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-brand">
+                    <a href="<%= ResolveUrl("~/Default.aspx") %>"
+                        class="brand footer-logo">NEXORA<span>.</span>
+                    </a>
+
+                    <p>
+                        Discover products you'll love.
+                        A better shopping experience starts here.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <a href="<%= ResolveUrl("~/Default.aspx") %>">Home
+                    </a>
+                    <a href="<%= ResolveUrl("~/Products.aspx") %>">Shop Products
+                    </a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Customer Care</h4>
+                    <a href="<%= ResolveUrl("~/Login.aspx") %>">My Account
+                    </a>
+                    <a href="<%= ResolveUrl("~/MyOrders.aspx") %>">My Orders
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> NEXORA.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </footer>
+
+    </form>
+</body>
+</html>
